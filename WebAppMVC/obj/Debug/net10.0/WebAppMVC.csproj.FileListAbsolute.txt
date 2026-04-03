@@ -95,3 +95,4 @@ C:\Users\m.aiesi\RiderProjects\exo_Entity_Framework\WebAppMVC\WebAppMVC\obj\Debu
 C:\Users\m.aiesi\RiderProjects\exo_Entity_Framework\WebAppMVC\WebAppMVC\obj\Debug\net10.0\WebAppMVC.pdb
 C:\Users\m.aiesi\RiderProjects\exo_Entity_Framework\WebAppMVC\WebAppMVC\obj\Debug\net10.0\WebAppMVC.genruntimeconfig.cache
 C:\Users\m.aiesi\RiderProjects\exo_Entity_Framework\WebAppMVC\WebAppMVC\obj\Debug\net10.0\ref\WebAppMVC.dll
+C:\Users\m.aiesi\RiderProjects\exo_Entity_Framework\WebAppMVC\WebAppMVC\obj\Debug\net10.0\WebAppMVC.sourcelink.json

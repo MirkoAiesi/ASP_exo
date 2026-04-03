@@ -71,5 +71,9 @@ public class FilmController : Controller
         TempData["Message"] = "Redirection reussie !";
         return View(film);
     }
+    public IActionResult APropos()
+    {
+        return View(listDeFilm);
+    }
     
 }
