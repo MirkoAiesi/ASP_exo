@@ -1,0 +1,28 @@
+﻿@model WebAppMVC.Models.Film
+
+@{
+    ViewBag.Title = "Formulaire ajout de film";
+    Layout = "_Layout";
+}
+
+<h2>Formulaire ajout de film</h2>
+<form method="post" asp-action="Ajouter">
+    <div class="mb-3">
+        <label class="form-label">Titre du film</label>
+        <input asp-for="Titre" type="text" class="form-control" id="movieTitle" placeholder="Ex: Inception">
+        <span asp-validation-for="Titre" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Genre</label>
+        <input asp-for="Genre" asp-validation="Genre" id="movieGenre" class="form-control" type="text" placeholder="Ex: Science-fiction">
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="releaseYear" class="form-label">Année de sortie</label>
+        <input asp-for="AnneeDeSortie" type="number" class="form-control" id="releaseYear" placeholder="Ex: 2010" min="1900" max="2030">
+        <span asp-validation-for="AnneeDeSortie" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer le film</button>
+</form>

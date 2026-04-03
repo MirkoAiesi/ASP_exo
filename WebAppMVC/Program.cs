@@ -30,8 +30,12 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name : "film_apropos",
     pattern:"apropos",
-    defaults: new {Controller= "Film", action="APropos"}
-);
+    defaults: new {Controller= "Film", action="APropos"});
+
+app.MapControllerRoute(
+    name: "film_ajouter",
+    pattern: "ajouter",
+    defaults: new {Controller= "Film", action="Ajouter"});
 
 app.MapControllerRoute(
         name: "default",

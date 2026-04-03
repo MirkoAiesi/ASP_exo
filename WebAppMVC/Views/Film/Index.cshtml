@@ -10,7 +10,6 @@
 
 @if (Model.Any())
 {
-    
     <div>
         <a asp-action="Index" asp-route-genre="Fantastique" class="btn btn-primary">Fantastique</a>
         <a asp-action="Index" asp-route-genre="Science-fiction" class="btn btn-success">Science-fiction</a>
@@ -41,6 +40,7 @@
         }
         </tbody>
     </table>
+    @TempData["Ajout"]
 }
 else
 {

@@ -5,7 +5,7 @@ namespace WebAppMVC.Controllers;
 
 public class FilmController : Controller
 {
-    public readonly List<Film> listDeFilm = new()
+    public static List<Film> listDeFilm = new()
     {
         new Film
         {
@@ -75,5 +75,26 @@ public class FilmController : Controller
     {
         return View(listDeFilm);
     }
-    
+
+    [HttpGet]
+    public IActionResult Ajouter()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Ajouter(Film film)
+    {
+        if (ModelState.IsValid)
+        {
+            int id = listDeFilm.Select(l => l.Id).Max();
+            film.Id = id + 1;
+            listDeFilm.Add(film);
+            TempData["Ajout"] = "Redirection reussie !";
+            return RedirectToAction("Index");
+            
+        }
+
+        return View(film);
+    }
 }
