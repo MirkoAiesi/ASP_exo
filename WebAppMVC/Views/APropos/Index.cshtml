@@ -1,0 +1,43 @@
+﻿@model System.Collections.Generic.List<WebAppMVC.Models.Film>
+
+@{
+    ViewBag.Title = "Répartition des films";
+    Layout = "_Layout";
+}
+@{
+    var total = @Model.Count;
+    var countFantastique = Model.Count(c => c.Genre == "Fantastique");
+    var countSF = Model.Count(c => c.Genre == "Science-fiction");
+    var countThriller = Model.Count(c => c.Genre == "Thriller");
+    var countAction = Model.Count(c => c.Genre == "Action");
+    
+    int getPercent(int count) => (total > 0) ? (count * 100 / total) : 0;
+    var pA = getPercent(countFantastique);
+    var pB = getPercent(countSF);
+    var pC = getPercent(countThriller);
+    var pD = getPercent(countAction);
+}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-md-8">
+        <h2 class="text-center mb-4">Répartition des films par genre</h2>
+        <div class="progress-stacked" style="height: 75px; font-size: 1.1rem;">
+            
+            <div class="progress" role="progressbar" style="width: @pA%; height: 75px">
+                <div class="progress-bar bg-primary">@countFantastique Fantastique</div>
+            </div>
+            
+            <div class="progress" role="progressbar" style="width: @pB%; height: 75px">
+                <div class="progress-bar bg-success">@countSF SF</div>
+            </div>
+            
+            <div class="progress" role="progressbar" style="width: @pC%; height: 75px">
+                <div class="progress-bar bg-info text-dark">@countThriller Thriller</div>
+            </div>
+            
+            <div class="progress" role="progressbar" style="width: @pD%; height: 75px">
+                <div class="progress-bar bg-warning text-dark">@countAction Action</div>
+            </div>
+        </div>
+        <p class="text-center mt-2"> Il ya un total de : @total films dans cette liste</p>
+    </div>
+</div>

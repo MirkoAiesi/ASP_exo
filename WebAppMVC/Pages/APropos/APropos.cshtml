@@ -1,0 +1,28 @@
+﻿@model System.Collections.Generic.List<WebAppMVC.Models.Film>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+@{
+    var total = @Model.Count;
+    var catA = @Model.Where(c => c.Genre == "Fantastique");
+    var totalA = (total > 0) ? (catA.Count() * 100 / total )  : 0;
+    var catB = @Model.Where(c => c.Genre == "Science-fiction");
+    var totalB = (total > 0) ? (catB.Count() * 100 / total )  : 0;
+    var catC = @Model.Where(c => c.Genre == "Thriller");
+    var totalC = (total > 0) ? (catC.Count() * 100 / total )  : 0;
+    var catD = @Model.Where(c => c.Genre == "Action");
+    var totalD = (total > 0) ? (catD.Count() * 100 / total )  : 0;
+}
+<h2>Classement du nombre de films par rapport à leur genre !</h2>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: @totalA%" aria-valuenow="@totalA" aria-valuemin="0" aria-valuemax="100">@catA éléments
+    </div>
+    <div class="progress-bar" role="progressbar" style="width: @totalB%" aria-valuenow="@totalB" aria-valuemin="0" aria-valuemax="100">@catA éléments
+    </div>
+    <div class="progress-bar" role="progressbar" style="width: @totalC%" aria-valuenow="@totalC" aria-valuemin="0" aria-valuemax="100">@catA éléments
+    </div>
+    <div class="progress-bar" role="progressbar" style="width: @totalD%" aria-valuenow="@totalD" aria-valuemin="0" aria-valuemax="100">@catA éléments
+    </div>
+</div>

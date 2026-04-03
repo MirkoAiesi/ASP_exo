@@ -1,0 +1,48 @@
+﻿@using WebAppMVC.Models
+@model System.Collections.Generic.List<WebAppMVC.Models.Film>
+
+@{
+    ViewBag.Title = "Liste de tout les films";
+    Layout = "_Layout";
+}
+
+<h2 class="text-center text-primary">Liste de tout les films : </h2>
+
+@if (Model.Any())
+{
+    
+    <div>
+        <a asp-action="Index" asp-route-genre="Fantastique" class="btn btn-primary">Fantastique</a>
+        <a asp-action="Index" asp-route-genre="Science-fiction" class="btn btn-success">Science-fiction</a>
+        <a asp-action="Index" asp-route-genre="Thriller" class="btn btn-danger">Thriller</a>
+        <a asp-action="Index" asp-route-genre="Action" class="btn btn-warning">Action</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID </th>
+            <th scope="col">Titre</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Année de sortie</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Film film in Model)
+        {
+            <tr>
+                <td>@film.Id</td>
+                <td>@film.Titre</td>
+                <td>@film.Genre</td>
+                <td>@film.AnneeDeSortie</td>
+                <td>
+                    <a asp-action="Details" asp-route-genre="@film.Genre" asp-route-id="@film.Id"> Voir plus de détails </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>Aucun film trouvé...</h3>
+}

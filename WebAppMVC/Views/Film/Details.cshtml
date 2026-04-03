@@ -1,0 +1,17 @@
+﻿@model WebAppMVC.Models.Film
+
+@{
+    ViewData["Title"] = $"Details : {@Model.Titre}";
+}
+<h2>Détails du film : </h2>
+
+<div class="card" style="width: 18rem;">
+    <img src="C:\Users\m.aiesi\RiderProjects\exo_Entity_Framework\WebAppMVC\WebAppMVC\Ressources\lotr.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Titre</h5>
+        <p class="card-text">@Model.Genre</p>
+        <p class="card-text">@Model.AnneeDeSortie</p>
+        <a asp-action="Index" class="btn btn-primary">Retour à la liste</a>
+    </div>
+</div>
+@TempData["Message"]
